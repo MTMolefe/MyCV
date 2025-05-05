@@ -1,4 +1,4 @@
- <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             const getLocationBtn = document.getElementById('getLocation');
             const loadingDiv = document.getElementById('loading');
@@ -110,4 +110,4 @@
                 locationButton.classList.remove('hidden');
             }
         });
-    </script>
+  
