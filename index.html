@@ -83,49 +83,28 @@
   </section>
 
 
+
 <section>
-	  
-        <div class="header">
-            <h2>Location & Weather App</h2>
-            <p>Get your current location and weather information</p>
-        </div>
-        
-        <div id="locationButton" class="text-center">
-            <button id="getLocation">Get My Location & Weather</button>
-        </div>
-        
-        <div id="loading" class="loading hidden">
-            <p>Fetching your location and weather data...</p>
-        </div>
-        
-        <div id="weatherDisplay" class="weather-display hidden">
-            <div class="location-display" id="locationText"></div>
-            
-            <div id="weatherMain">
-                <div class="temp-display" id="temperature"></div>
-                <div id="weatherDescription"></div>
-                <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
-            </div>
-		   <div class="weather-info">
-                <div class="info-card">
-                    <h3>Location Details</h3>
-                    <div class="info-item" id="latitude"></div>
-                    <div class="info-item" id="longitude"></div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Weather Details</h3>
-                    <div class="info-item" id="feelsLike"></div>
-                    <div class="info-item" id="humidity"></div>
-                    <div class="info-item" id="windSpeed"></div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="errorMessage" class="error-message"></div>
+    <div class="header">
+        <h2>Location & Weather App</h2>
+        <p>Get your current location and weather information</p>
     </div>
-            
-       
+    
+    <div id="loading" class="loading">
+        <p>Fetching your location and weather data...</p>
+    </div>
+    
+    <div id="weatherDisplay" class="weather-display hidden">
+        <div class="location-display" id="locationText"></div>
+        
+        <div id="weatherMain">
+            <div class="temp-display" id="temperature"></div>
+            <div id="weatherDescription"></div>
+            <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
+        </div>
+    </div>
+    
+    <div id="errorMessage" class="error-message"></div>
 </section>
  
        <script src="script.js"></script>
