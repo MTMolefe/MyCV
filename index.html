@@ -8,12 +8,37 @@
 
 </head>
 <body>
-
-  <header>
+	 <header>
     <h1>MT Molefe</h1>
     <p>Developer | Designer | Tech Enthusiast</p>
 
   </header>
+
+	<section>
+    <div class="header">
+        <h2>Location & Weather App</h2>
+        <p>Get your current location and weather information</p>
+    </div>
+    
+    <div id="loading" class="loading">
+        <p>Fetching your location and weather data...</p>
+    </div>
+    
+    <div id="weatherDisplay" class="weather-display hidden">
+        <div class="location-display" id="locationText"></div>
+        
+        <div id="weatherMain">
+            <div class="temp-display" id="temperature"></div>
+            <div id="weatherDescription"></div>
+            <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
+        </div>
+    </div>
+    
+    <div id="errorMessage" class="error-message"></div>
+</section>
+<script src="script.js"></script>
+  
+	
 
   <section>
     <h2>About Me</h2>
@@ -84,28 +109,7 @@
 
 
 
-<section>
-    <div class="header">
-        <h2>Location & Weather App</h2>
-        <p>Get your current location and weather information</p>
-    </div>
-    
-    <div id="loading" class="loading">
-        <p>Fetching your location and weather data...</p>
-    </div>
-    
-    <div id="weatherDisplay" class="weather-display hidden">
-        <div class="location-display" id="locationText"></div>
-        
-        <div id="weatherMain">
-            <div class="temp-display" id="temperature"></div>
-            <div id="weatherDescription"></div>
-            <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
-        </div>
-    </div>
-    
-    <div id="errorMessage" class="error-message"></div>
-</section>
+
  
        <script src="script.js"></script>
   
