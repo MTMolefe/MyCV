@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const getLocationBtn = document.getElementById('getLocation');
     const loadingDiv = document.getElementById('loading');
     const weatherDisplayDiv = document.getElementById('weatherDisplay');
     const errorMessageDiv = document.getElementById('errorMessage');
-    const locationButton = document.getElementById('locationButton');
 
-    getLocationBtn.addEventListener('click', () => {
+    // Automatically get location when page loads
+    getLocationAndWeather();
+
+    function getLocationAndWeather() {
         // Show loading, hide other elements
         loadingDiv.classList.remove('hidden');
         weatherDisplayDiv.classList.add('hidden');
         errorMessageDiv.style.display = 'none';
-        locationButton.classList.add('hidden');
 
         // Check if geolocation is available
         if (!navigator.geolocation) {
@@ -23,15 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             position => getWeatherData(position),
             error => handleGeolocationError(error)
         );
-    });
+    }
 
     function getWeatherData(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-
-        // Display location coordinates
-        document.getElementById('latitude').textContent = `Latitude: ${lat.toFixed(4)}`;
-        document.getElementById('longitude').textContent = `Longitude: ${lon.toFixed(4)}`;
 
         // OpenWeatherMap API (free tier)
         const apiKey = '8d2de98e089f1c28e1a22fc19a24ef04'; // This is a free API key for demo purposes
@@ -45,18 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                displayWeatherData(data, lat, lon);
+                displayWeatherData(data);
             })
             .catch(error => {
                 showError(`Error fetching weather data: ${error.message}`);
             });
     }
 
-    function displayWeatherData(data, lat, lon) {
-        // Get city name or set coordinates if not available
-        const locationName = data.name ?
-            `${data.name}, ${data.sys.country}` :
-            `Location at ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+    function displayWeatherData(data) {
+        // Get city name or set to generic location
+        const locationName = data.name ? 
+            `${data.name}, ${data.sys.country}` : 
+            `Current Location`;
 
         // Display location name
         document.getElementById('locationText').textContent = locationName;
@@ -70,11 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
         document.getElementById('weatherIcon').src = iconUrl;
-
-        // Display additional weather details
-        document.getElementById('feelsLike').textContent = `Feels like: ${Math.round(data.main.feels_like)}°C`;
-        document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
-        document.getElementById('windSpeed').textContent = `Wind: ${data.wind.speed} m/s`;
 
         // Show weather display, hide loading
         loadingDiv.classList.add('hidden');
@@ -106,6 +97,5 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessageDiv.textContent = message;
         errorMessageDiv.style.display = 'block';
         loadingDiv.classList.add('hidden');
-        locationButton.classList.remove('hidden');
-    };
+    }
 });
