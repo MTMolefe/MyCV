@@ -1,5 +1,5 @@
 # MyCV
-a webpage displaying my Curriculum Vitae,
+a webpage displaying my Curriculum Vitae, with a weather app and locator.
 I am aware of how important it is to make a great first impression. We live in a time of intense 
 competition and the fight for every available job opportunity is a fight for our very lives. You will 
 read numerous motivational letters and impressive resumes that relay just how hardworking 
